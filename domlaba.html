@@ -1,0 +1,61 @@
+<!-- To-Do List Application:
+● Users can add, delete, and mark tasks as completed.
+● DOM elements dynamically update as tasks are added or removed.
+● Events such as clicking on a task to mark it as complete or clicking a delete
+button to remove a task are handled. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    #task-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .task-item {
+        margin-bottom: 5px;
+    }
+    .completed {
+        text-decoration: line-through;
+    }
+</style>
+</head>
+<body>
+<h1>To-Do List</h1>
+<input type="text" id="task-input" placeholder="Enter a new task">
+<button onclick="addTask()">Add Task</button>
+<ul id="task-list"></ul>
+
+<script>
+    // Function to add a new task
+    function addTask() {
+        var input = document.getElementById("task-input");
+        var taskText = input.value.trim();
+        if (taskText !== "") {
+            var taskList = document.getElementById("task-list");
+            var newTask = document.createElement("li");
+            newTask.textContent = taskText;
+            newTask.classList.add("task-item");
+            newTask.onclick = function() {
+                this.classList.toggle("completed");
+            };
+            var deleteButton = document.createElement("button");
+            deleteButton.textContent = "❌";
+            deleteButton.onclick = function(event) {
+                event.stopPropagation(); // Prevent task item click event from firing
+                this.parentNode.remove();
+            };
+            newTask.appendChild(deleteButton);
+            taskList.appendChild(newTask);
+            input.value = ""; // Clear input field
+        }
+    }
+</script>
+</body>
+</html>
