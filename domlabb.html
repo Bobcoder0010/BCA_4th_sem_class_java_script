@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dynamic Content Filtering</title>
 <style>
-    /* Basic styling */
     body {
         font-family: Arial, sans-serif;
     }
@@ -18,7 +17,6 @@
 </head>
 <body>
 <h1>Dynamic Content Filtering</h1>
-<!-- Filter options -->
 <label for="category-filter">Filter by Category:</label>
 <select id="category-filter">
     <option value="all">All</option>
@@ -29,57 +27,49 @@
 <label for="price-filter">Filter by Price:</label>
 <select id="price-filter">
     <option value="all">All</option>
-    <option value="0-25">$0 - $25</option>
-    <option value="25-50">$25 - $50</option>
-    <option value="50-100">$50 - $100</option>
+    <option value="0-25">Rs.0 - Rs.25000</option>
+    <option value="25-50">Rs.25000 - Rs.50000</option>
+    <option value="50-100">Rs.50000 - Rs.100000</option>
 </select>
 
-<!-- Product list -->
 <div id="product-list">
-    <!-- Product items will be dynamically added here -->
 </div>
 
 <script>
-    // Sample product data
     var products = [
-        { name: "Laptop", category: "electronics", price: 799 },
-        { name: "T-shirt", category: "clothing", price: 19.99 },
-        { name: "Headphones", category: "electronics", price: 49.99 },
-        { name: "Jeans", category: "clothing", price: 39.99 },
-        { name: "Book", category: "books", price: 12.99 },
-        { name: "Smartphone", category: "electronics", price: 299 }
+        { name: "Laptop", category: "electronics", price: 100000 },
+        { name: "T-shirt", category: "clothing", price: 500 },
+        { name: "Headphones", category: "electronics", price: 3000 },
+        { name: "Jeans", category: "clothing", price: 4000 },
+        { name: "Book", category: "books", price: 5500 },
+        { name: "Smartphone", category: "electronics", price: 30000 }
     ];
 
-    // Function to render products based on filters
     function renderProducts(categoryFilter, priceFilter) {
         var productList = document.getElementById("product-list");
-        productList.innerHTML = ""; // Clear previous content
+        productList.innerHTML = ""; 
 
         products.forEach(function(product) {
-            // Apply category filter
             if (categoryFilter !== "all" && product.category !== categoryFilter) {
-                return; // Skip this product
+                return; 
             }
 
-            // Apply price filter
             if (priceFilter !== "all") {
                 var priceRange = priceFilter.split("-");
                 var minPrice = parseFloat(priceRange[0]);
                 var maxPrice = parseFloat(priceRange[1]);
                 if (product.price < minPrice || product.price > maxPrice) {
-                    return; // Skip this product
+                    return; 
                 }
             }
 
-            // Create and append product element
             var productElement = document.createElement("div");
             productElement.classList.add("item");
-            productElement.textContent = product.name + " - $" + product.price;
+            productElement.textContent = product.name + " - Rs." + product.price;
             productList.appendChild(productElement);
         });
     }
 
-    // Event listeners for filter changes
     document.getElementById("category-filter").addEventListener("change", function() {
         var categoryFilter = this.value;
         var priceFilter = document.getElementById("price-filter").value;
@@ -92,7 +82,6 @@
         renderProducts(categoryFilter, priceFilter);
     });
 
-    // Initial render
     renderProducts("all", "all");
 </script>
 </body>

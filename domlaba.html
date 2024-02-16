@@ -1,8 +1,3 @@
-<!-- To-Do List Application:
-● Users can add, delete, and mark tasks as completed.
-● DOM elements dynamically update as tasks are added or removed.
-● Events such as clicking on a task to mark it as complete or clicking a delete
-button to remove a task are handled. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +5,6 @@ button to remove a task are handled. -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>To-Do List</title>
 <style>
-    /* Basic styling */
     body {
         font-family: Arial, sans-serif;
     }
@@ -33,7 +27,6 @@ button to remove a task are handled. -->
 <ul id="task-list"></ul>
 
 <script>
-    // Function to add a new task
     function addTask() {
         var input = document.getElementById("task-input");
         var taskText = input.value.trim();
@@ -48,12 +41,12 @@ button to remove a task are handled. -->
             var deleteButton = document.createElement("button");
             deleteButton.textContent = "❌";
             deleteButton.onclick = function(event) {
-                event.stopPropagation(); // Prevent task item click event from firing
+                event.stopPropagation();
                 this.parentNode.remove();
             };
             newTask.appendChild(deleteButton);
             taskList.appendChild(newTask);
-            input.value = ""; // Clear input field
+            input.value = "";
         }
     }
 </script>
