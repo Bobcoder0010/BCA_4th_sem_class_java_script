@@ -1,0 +1,51 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS Form Validation</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- <h1>welcome</h1> -->
+
+			<form action="" id="form" class="form">
+				<h2>Registration Form</h2>
+				<!-- username -->
+				<div class="form-control">
+					<label for="username">Username: </label>
+					<input type="text" id="username" placeholder="Enter your name" />
+					<small>Error message will be displayed here.</small>
+				</div>
+				<!-- email -->
+				<div class="form-control">
+					<label for="email">Email: </label>
+					<input type="text" id="email" placeholder="Enter your email" />
+					<small>Error message will be displayed here.</small>
+				</div>
+				<!-- password -->
+				<div class="form-control">
+					<label for="password">Password: </label>
+					<input type="text" id="password" placeholder="Enter your password" required/>
+					<small>Error message will be displayed here.</small>
+				</div>
+				<!-- cpassword -->
+				<div class="form-control">
+					<label for="cpassword">Confirm password: </label>
+					<input
+						type="text"
+						id="cpassword"
+						placeholder="Enter your password again"
+						autocomplete="off" required/>
+					<small>Error message will be displayed here.</small>
+				</div>
+				<button type="submit">Submit</button>
+				<!-- <input type="submit" value="Submit" /> -->
+			</form>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
