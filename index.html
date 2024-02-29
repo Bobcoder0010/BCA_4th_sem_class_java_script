@@ -49,3 +49,18 @@
 		<script src="script.js"></script>
 	</body>
 </html>
+$colors = array("blue", 5, 6, 7, 4, 2, "orange");
+
+// Accessing elements of the array
+echo "The first color is: " . $colors[0] . "<br>";
+echo "The third color is: " . $colors[6] . "<br>";
+
+// Adding elements to the array
+$colors[] = "red";
+echo "Added a new color: " . $colors[7] . "<br>";
+
+// Iterating through the array
+echo "All colors in the array:<br>";
+foreach ($colors as $color) {
+    echo $color . "<br>";
+}
