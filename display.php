@@ -11,3 +11,4 @@ echo "</pre>";
 echo "{$_REQUEST['fname']}";
 echo "{$_REQUEST['phone']}";
 ?>
+aaa mooj raixa tw teso vaye tw haai 
